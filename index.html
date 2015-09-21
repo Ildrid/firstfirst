@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset="utf-8" />	
+	<link rel="stylesheet" type="text/css" href="stil.css" />
+	
+	<title> Java Script oblig2 </title>
+
+
+</head>
+<body>
+
+<div id="side">
+	
+	<header>
+		<h1> Ildrid Nerbu Løfald, Informasjonssystemer, 2014 </h1>
+		<h2> Javascript Oblig2 </h2> 
+		<p> Direkte link til <a href="http://ask.hiof.no/~ildridnl/infprog/oblig2script.js" > JavaScript </a> koden.</p>
+		<hr />
+	</header>
+
+	<div id="oppgave1">
+		<h3> Oppgave 1 </h3>
+		<p>Lag to tekstbokser og en knapp. Når man trykker på knappen skal teksten i den første tekstboksen 
+		skrives ut så mange ganger (linje for linje) som man skrev et tall i den andre tekstboksen.</p>
+		<div class="svar">
+			
+			<fieldset>
+				<legend> Fyll inn en tekst og et tall, og se magien! </legend>
+				<label>Tekst: <input type="text" id="input1" /></label> <br /> 
+				<label>Tall: <input type="number" id="number1" /> </label> <br />
+				<input type="button" class="button" id="button1" onclick="tall()" value="print" /> <br />
+				<output id="result1">  </output>	
+			</fieldset>	
+		</div>	
+	</div> <!-- oppgave slutt -->
+	
+	<div id="oppgave2">
+		<h3> Oppgave 2 </h3>
+		<p>Skriv ut lister med tall mellom 0 og 100 etter følgende regler:</p>
+		<ul> 
+			<li>Forlengs: 0,1,2,...,98,99,100 </li>
+			<li>Baklengs: 100,99,98,...,1,0</li>
+			<li>Delt på 2: 0,0.5,...,49,49.5,50</li>
+			<li>Kun de som er delige på 3: 3,6,9...99 (Tips: Her kan man prøve %-operatoren)</li>
+			<li>Partall: 2,4,6,8,...98,100</li>
+			<li>Oddetall: 1,3,5,...,97,99</li>
+			<li>Annenhvert tall positivt og negativt: 0,-1,2,-3,4,-5,...,-99,100</li>
+		</ul>
+		<p>Om du vil gjøre litt ekstra her kan du foreksempel la en selectbox inneholde de ulike valgene av 
+		utskrift og ved valg av metode så skal listen genereres. Du kan og gi brukeren mulighet til å velge 
+		ønsket tallområde, feks fra 0 – 1000 eller 50000 – 75000 etc</p>
+		<div class="svar">
+			<br /> 
+			<fieldset>
+				<legend> Her kan du skrive ut tallene mellom 1 og 100, eller du kan velge to andre tall. </legend>
+				tall 1: <input type="number" id="input2a" value="1" />
+				tall 2: <input type="number" id="input2b" value="100" />
+
+				<select id="tallselect" onchange="alletall()">
+
+				<option value="velg">Velg</option>
+				<option value="test">Skriv ut</option>
+				<option value="test2">Skriv ut motsatt</option>
+				<option value="test3">delt på 2</option>
+				<option value="test4">partall</option>
+				<option value="test5">oddetall</option>
+				<option value="test6">delelig på 3</option>
+				<option value="test7">annenhver</option>
+
+				</select>
+				<br />
+				<output id="result2"></output>
+			</fieldset>
+		</div>
+	</div> <!-- oppgave slutt -->
+	
+	<div id="oppgave3">
+		<h3> Oppgave 3 </h3>
+		<p>Lag et skjema som tar i mot et pengebeløp, en rentesats og et antall år. Lag deretter en for-løkke som 
+		printer ut linjer på formen: Etter yyy år har du xxx penger på banken. </p>
+		<div class="svar">
+			<fieldset>
+				<legend> Rentekalkulator: </legend>
+				Kr: <input type="number" id="penger" value="" /> <br />
+				Rentesats : <input type="number" id="rentesats" value="" /> <br />
+				År: <input type="number" id="aar" value=""/> <br />	
+				<input type="button" class="button" onclick="kalku()" value="Kalkuler"/>
+				<input type="button" class="button" onclick="x3()" value="Tøm feltene" /> <br />
+				<output id="banken"> </output>
+				<input type="button" class="button" onclick="tom3()" value="Fjern tekst" />
+			</fieldset>		
+		</div>
+	</div> <!-- oppgave slutt -->
+	
+	<div id="oppgave4">
+	<h3> Oppgave 4 </h3>
+	<p>Skriv ut alle tosifrede kombinasjoner av tallene 1,2,3,4 og 5, slik som 1-1, 1-2, 1-3, 1-4, 1-5, 2-1, 2-2 
+	osv. (Tips: Nestede løkker). Du kan også prøve også med alle tresiftrede, firesifrede og femsifrede 
+	kombinasjoner for å trene på nestede løkker.</p>
+		<div class="svar">
+			<p> OBS! 4 kan ta litt tid. 4 og 5 viser tallkombinajonene kun opp til 3 og 2, 
+			for at det ikke skal ta for lang tid. </p>
+		<input type="button" class="button" value="2" onclick="ab()" />
+		<input type="button" class="button" value="3" onclick="abc()" />
+		<input type="button" class="button" value="4" onclick="abcd()" />
+		<input type="button" class="button" value="5" onclick="abcde()" />
+		<output id="output4"> </output>
+			
+		</div>
+	</div> <!-- oppgave slutt -->
+	
+	<div id="oppgave5">
+	<h3> Oppgave 5 </h3>
+	<p>Lag en array med tall, gjør så følgende med denne:</p>
+		<ul>
+			<li>Skriv ut arrayen</li>
+			<li>Skriv ut arrayen baklengs</li>
+			<li>Skriv ut annethvert tall i arrayen</li>
+			<li>Skriv ut de tallene som er mindre enn 10 i arrayen</li>
+			<li>Skriv ut alle partall i arrayen</li>
+			<li>Finn summen av arrayen</li>
+			<li>Finn antall elementer i arrayen</li>
+			<li>Finn gjennomsnittet av arrayen</li>
+			<li>Finn summen av partall i arrayen</li>
+			<li>Finn minste element (la en variabel holde på minste element funnet til nå, mens du går 
+			gjennom lista, og sjekk hele tiden om denne verdien skal byttes ut med verdien du er på)</li>
+			<li>Finn ut om en liste inneholder en bestemt verdi.</li>
+			<li>Finn ut hvor mange forekomster det er av en bestemt verdi.</li>
+		</ul>
+	
+		<div class="svar">
+			<div id="tallrekken"> </div>
+
+			<input type="button" class="button" value="Baklengs" onclick="bak5()" />
+			<input type="button" class="button" value="Annenhver" onclick="annen5()" />
+			<input type="button" class="button" value="Mindre en 10" onclick="mindre5()" />
+			<input type="button" class="button" value="Partall" onclick="par5()" />
+			<input type="button" class="button" value="Minste tallet" onclick="minste5()" /><br />
+			<input type="button" class="button" value="Sum" onclick="sum5()" />
+			<input type="button" class="button" value="Antall" onclick="antall5()" />
+			<input type="button" class="button" value="Gjennomsnitt" onclick="gjennom5()" />
+			<input type="button" class="button" value="Summen av partall" onclick="sumPar()" /><br />
+
+			<input type="text" id="input5a" />
+			<input type="button" class="button" value="Finnes denne verdien i talreken?" onclick="bestemt5()" /><br />
+			<input type="text" id="input5b" />
+			<input type="button" class="button" value="Hvor mange av denne verdien finnes det?" onclick="antallbest5()" /><br />
+
+			<input type="number" id="leggtil"  />
+			<input type="button" class="button" onclick="leggTil(leggtil)" value="Legg til tall">
+
+			<br />
+			<output id="opg5"> </output>
+		</div>
+	</div> <!-- oppgave slutt -->
+	
+	<div id="oppgave5b"> 
+	<h3> Oppgave 5b </h3>
+	
+	<div class="svar">
+	
+	<div class="svar">
+	<input type="text" id="inp5b_måned" />
+	<input type="text" id="inp5c_dager" />
+	<input type="button" class="button" id="knapp5b" onclick="kalender()" value="Kjør" />
+	
+	<output id="opg5b"> </output>
+	</div>
+	
+	
+	
+	<div id="oppgave6">
+	<h3> Oppgave 6 </h3>
+	<p> Lag en webside med en tekstboks og en knapp. Lag så en array med antall dager i hver måned. Januar 
+	skal da være på indeks 0, februar på indeks 1 osv. I tekstboksen skal du så kunne skrive inn 
+	nummeret på en måned (1-12), og få ut antall dager i denne måneden. Du kan her se bort i fra 
+	skuddår.</p>
+
+		<div class="svar">
+			<p>Hvor mange dager er det i måneden? Du kan velge selv om du skriver navnet på måneden, eller tallet (eks: mai eller 5).  <br />   </p>
+			<input type="text" id="inp6" />
+			<input type="button" class="button" id="knapp6" onclick="maned6()" value="Antall dager i måneden" />
+
+			<output id="opg6"> </output>	
+			
+		</div>
+	</div> <!-- oppgave slutt -->
+	
+	<div id="oppgave7">
+		<h3> Oppgave 7 </h3>
+		<p>Her skal dere dele opp en tekststreng bestående av teksten over til en array, ved å bruke 
+		strengfunksjoner vi har sett på i forelesning (er dere usikre: google). Dereter skal dere lage et skjema 
+		som lar oss gjøre ulike operasjoner mot denne arrayen. Om dere velger å benytte regulæruttrykk til å løse oppgaven er det greit om 
+		ord som begynner og/eller slutter på æ,ø,å ikke lar seg bytte. Funksjonalitet som dere skal ha er som 
+		følger:</p>
+		<ul>
+		<li>Man skal kunne skrive inn ett ord i skjemaet og få ut:
+			<ul>
+				<li>I hvilken posisjon finner vi første tilfelle av ordet</li>
+				<li>Hvor mange ganger går dette ordet igjen i teksten</li>
+			</ul>
+		</li>	
+		<li>Så skal man kunne skrive inn et ord som man ønsker å bytte ut med ett annet ord i teksten. 
+		Om man feks ønsker å bytte ut ordet «er» med ordet «var», skal alle tilfeller av er erstattes 
+		med var. Forandringen skal selvfølgelig kunne sees på nettsiden</li>
+		</ul>	
+			<div class="svar">
+						<div id="historien"></div>
+							<br />
+							<input type="text" id="input7" />
+							<input type="button" class="button" value="Hvor mange av bestemt Verdi" onclick="hvorM(input7)" />
+							<br />
+							<div id="opg7"></div>
+							<div id="opg7b"></div>
+							<br />
+							<label for="bytt">Finn dette ordet:</label>
+							<input type="text" id="bytt" />
+							<br />
+							<label for="bytttil">Og bytt det ut med dette:</label>
+							<input type="text" id="bytttil" />
+							<br />
+							<input type="button" class="button" id="bytteknapp" onclick="bytteF(bytt, bytttil)" value="Bytt ut" />
+							<br />		
+			</div>
+	</div> 	<!-- oppgave slutt -->
+
+	<div id="oppgave8">
+	<h3> Oppgave 8 </h3>
+	<p>Dereskal lage en kidnappingsbrevgenerator. Brukeren skal kunne skrive inn en tekst og generere et 
+	kidnappingsbrev av denne teksten. Det er da her tenkt att dere skal ertatte bokstaven i teksten med 
+	ett bilde av den samme bokstaven. </p>
+		<div class="svar">
+			<p> Din onde plan er nesten i boks, og tiden er inne for å genere ditt kidnappingsbrev. For å virke ekstra smart blir brevet generert i scrabble-bokstaver. <br />
+			Hvis du er redd for å bli avslørt om du kun bruker en font (eller synes scrabble blir litt for skummelt) så kan du trykke på 'generer tilfeldig'. Da blir brevet generert ut fra 4 ulike alfabeter.  
+			<br />Tegn du kan benytte er bokstaver fra A til Å, samt "! ? , ." Hvis du har lyst til å teste svada-knappen, så kan du også bruke tall :)  </p>
+				<textarea rows="4" cols="50" id="inp8"></textarea><br />
+					<input type="button" class="button" id="button8" onclick="kidnapp()" value="Scrabble This!" />
+					<input type="button" class="button" id="button8b" onclick="tilfeldig()" value="Generer Tilfeldig" />
+<input type="button" class="button" id="button8c" onclick="svada()" value="Svada" />
+				<div id="svar8">	</div>
+		</div>
+	</div> 	<!-- oppgave slutt -->	
+	
+	<footer>
+		<p> Oppgaven er besvart av Ildrid, 2014 </p>
+	</footer>  
+	
+</div>
+
+<script src="oblig2script.js"></script>
+</body>
+</html>
